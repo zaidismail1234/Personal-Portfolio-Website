@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>B Zaid Ismail | Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <div class="theme-toggle" id="themeToggle" title="Toggle theme">
+    <i class="fas fa-moon"></i>
+  </div>
+
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <div class="logo">B Zaid Ismail</div>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="social-icons">
+        <a href="https://github.com/zaidismail1234" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/bzaidismail" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-bg-animated"></div>
+    <div class="hero-content">
+     
+      <h1>Hello, I'm <span>B Zaid Ismail</span></h1>
+      <p>Computer Science Engineer | Full Stack Developer | AI Enthusiast</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn">Hire Me</a>
+        <a href="resume.pdf" class="btn" download>Download Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="glass-card about-section">
+    <div class="about-bg-animated"></div>
+    <h2>About Me</h2>
+    <div class="about-content">
+      <div class="about-img">
+        <img src="profile-placeholder.jpg" alt="Profile"
+             onerror="this.onerror=null;this.src='https://via.placeholder.com/180';"/>
+      </div>
+      <div class="about-text">
+        <p>
+          Passionate and results-driven Computer Science Engineering student with hands-on 
+        experience in Java, Python, and Full Stack Web Development. Eager to contribute to real
+        world software solutions using modern development tools, frameworks, and agile 
+        methodologies. 
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="glass-card skills-section">
+    <div class="skills-bg-animated"></div>
+    <h2>Skills</h2>
+    <div class="skills-container">
+      <div class="skill-card"><i class="fab fa-java"></i> Java <div class="skill-bar"><div class="skill-level" style="width:85%"></div></div></div>
+      <div class="skill-card"><i class="fab fa-python"></i> Python <div class="skill-bar"><div class="skill-level" style="width:25%"></div></div></div>
+      <div class="skill-card"><i class="fab fa-html5"></i> HTML <div class="skill-bar"><div class="skill-level" style="width:95%"></div></div></div>
+      <div class="skill-card"><i class="fab fa-css3-alt"></i> CSS <div class="skill-bar"><div class="skill-level" style="width:90%"></div></div></div>
+      <div class="skill-card"><i class="fab fa-js"></i> JavaScript <div class="skill-bar"><div class="skill-level" style="width:50%"></div></div></div>
+      <div class="skill-card"><i class="fab fa-react"></i> React <div class="skill-bar"><div class="skill-level" style="width:30%"></div></div></div>
+      <div class="skill-card"><i class="fas fa-database"></i> SQL & MongoDB <div class="skill-bar"><div class="skill-level" style="width:25%"></div></div></div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="glass-card">
+    <h2>Projects</h2>
+    <div class="projects-container">
+      <div class="project-card">
+        <h3>AI-Based Structural Health Monitoring</h3>
+        <p>Structural Health Monitoring System using AI </p>
+        <button class="project-btn" onclick="openModal('modal1')">More Details</button>
+      </div>
+      <div class="project-card">
+        <h3>Resume ATS Score Finder</h3>
+        <p>Analyzes resumes against job descriptions and provides ATS compatibility scores. Built with Python + NLP + data analytics.</p>
+        <button class="project-btn" onclick="openModal('modal2')">More Details</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Modals -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal1')">&times;</span>
+      <h3>AI-Based Structural Health Monitoring  – SJMIT | Mar 2025 – Present</h3>
+      <p>AI-Based Structural Health Monitoring & LCA  
+        <br>* Designed a Python & AI-powered monitoring system for civil infrastructure. 
+        <br>* Implemented sensor data collection + ML models to detect anomalies. 
+        <br>* Improved early damage detection accuracy by 20%. 
+        <br>* Tools: Python, Machine Learning, SQL, Sensors Integration. </p>
+    </div>
+  </div>
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal2')">&times;</span>
+      <h3>Resume ATS Score Finder</h3>
+      <p>Details about the project, technologies used, and your role.</p>
+    </div>
+  </div>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="glass-card">
+    <h2>Certifications & Achievements</h2>
+    <div class="certs-container">
+      <div class="cert-card">Deloitte</div>
+      <div class="cert-card">IBM SkillsBuild</div>
+      <div class="cert-card">Adobe Hackathon</div>
+      <div class="cert-card">Tech Quiz</div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="glass-card">
+    <div class="contact-bg-animated"></div>
+    <h2>Contact Me</h2>
+    <div class="contact-info">
+      <p><i class="fas fa-map-marker-alt"></i> Bangalore, Karnataka</p>
+      <p><i class="fas fa-envelope"></i> ismailzaid938@gmail.com</p>
+      <p><i class="fas fa-phone"></i> +91 7204490621</p>
+      <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/b-zaid-ismail-91a388328?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bv8Op54JwRQ6Rv7xL2oOM2A%3D%3D" target="_blank" rel="noopener">LinkedIn</a></p>
+      <p><i class="fab fa-github"></i> <a href="https://github.com/zaidismail1234" target="_blank" rel="noopener">GitHub</a></p>
+    </div>
+    <form class="contact-form" action="https://formspree.io/f/xjkavljk" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+    <a href="resume.pdf" class="btn" download>Download Resume</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 B Zaid Ismail | Designed with Mr ZAID</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,703 @@
+:root {
+  --primary: #694fff;
+  --secondary: #f5f7fa;
+  --accent: #ffb347;
+  --text: #222;
+  --bg: #fff;
+  --card-bg: #f8f9fb;
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --radius: 18px;
+  --transition: 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* Light mode: all text black */
+body,
+body * {
+  color: #181a20;
+}
+
+/* --- Universal font color for light mode --- */
+body,
+body * {
+  color: #181a20;
+}
+
+header {
+  background: var(--secondary);
+  box-shadow: var(--shadow);
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 0.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  transition: background var(--transition), color var(--transition);
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+  background: var(--primary);
+  color: #fff;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.5rem;
+  background: var(--primary);
+  color: #ffffffa2;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  z-index: 100;
+  transition: background var(--transition);
+}
+.theme-toggle:hover { background: var(--accent); color: #222; }
+
+section {
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  padding: 2rem;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+h2 {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.home-content {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.home-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.home-content h1 span {
+  color: #181a20;
+}
+.home-content p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+.btn, .btn-outline {
+  display: inline-block;
+  padding: 0.7rem 2rem;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin: 0.5rem;
+  transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+}
+.btn {
+  background: var(--primary);
+  color: #fff;
+}
+.btn:hover {
+  background: var(--accent);
+  color: #222;
+}
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.about-img img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+  border: 4px solid var(--primary);
+}
+.about-text {
+  flex: 1;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.skill-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.1rem;
+  font-weight: 500;
+  gap: 0.7rem;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.skill-card i {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+.skill-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(79,140,255,0.13);
+}
+.skill-bar {
+  width: 100%;
+  height: 8px;
+  background: #e3e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.skill-level {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 8px;
+  transition: width 1.5s cubic-bezier(.4,0,.2,1);
+}
+.skill-card.visible .skill-level {
+  width: attr(data-width); /* Use JS to set width dynamically */
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.timeline-item {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.5rem;
+  border-left: 6px solid var(--primary);
+}
+
+.experience-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+.experience-card h3 {
+  margin-top: 0;
+  color: var(--primary);
+}
+.experience-card ul {
+  margin: 0.5rem 0 0 1.2rem;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.project-card {
+  background: #3f2d2d;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.2rem 1rem;
+  transition: transform var(--transition), box-shadow var(--transition);
+  position: relative;
+}
+.project-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(255,179,71,0.13);
+}
+.project-btn {
+  margin-top: 1rem;
+  background: var(--primary);
+  color: #481818;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background var(--transition), color var(--transition);
+}
+.project-btn:hover {
+  background: var(--accent);
+  color: #222;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 200;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.35);
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background: #14481e;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 400px;
+  width: 90vw;
+  position: relative;
+}
+.close {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  font-size: 1.5rem;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.certs-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.cert-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Fix: Certificate card text visible in dark mode */
+body.dark .cert-card,
+body.dark .cert-card * {
+  color: #fff !important;
+  background: #23272f !important;
+}
+
+/* Optional: Make cert card border or accent more visible in dark mode */
+body.dark .cert-card {
+  border: 1.5px solid #ffd580 !important;
+}
+
+.contact-info p, .contact-info a {
+  font-size: 1.1rem;
+  color: #444;
+  margin: 0.3rem 0;
+  text-decoration: none;
+}
+.contact-form {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-form input, .contact-form textarea {
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid #dbeafe;
+  font-size: 1rem;
+  background: #f8f9fb;
+  resize: none;
+  transition: border var(--transition);
+}
+.contact-form input:focus, .contact-form textarea:focus {
+  border: 1.5px solid var(--primary);
+  outline: none;
+}
+.contact-form button {
+  align-self: flex-start;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem 0 0.5rem 0;
+  color: #888;
+  background: transparent;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+/* Live animated SVG background for hero section */
+.hero-bg-animated {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+.hero-bg-animated::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="g1" cx="50%" cy="50%" r="80%"><stop offset="0%" stop-color="%234f8cff" stop-opacity="0.25"/><stop offset="100%" stop-color="white" stop-opacity="0"/></radialGradient></defs><circle cx="60%" cy="40%" r="320" fill="url(%23g1)"><animate attributeName="cx" values="60%;40%;60%" dur="8s" repeatCount="indefinite"/></circle><circle cx="30%" cy="70%" r="220" fill="url(%23g1)"><animate attributeName="cy" values="70%;50%;70%" dur="10s" repeatCount="indefinite"/></circle></svg>');
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: bg-move 16s linear infinite alternate;
+  opacity: 0.7;
+  filter: blur(0.5px);
+}
+@keyframes bg-move {
+  0% { filter: blur(0.5px) brightness(1); }
+  100% { filter: blur(1.5px) brightness(1.1);}
+}
+
+/* Make sure .hero-section is positioned relative */
+.hero-section {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #4f8cff 0%, #ffb347 100%);
+  overflow: hidden;
+}
+
+/* Live animated SVG background for About section */
+.about-section {
+  position: relative;
+  overflow: hidden;
+}
+.about-bg-animated {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+.about-bg-animated::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="g2" cx="50%" cy="50%" r="80%"><stop offset="0%" stop-color="%23ffb347" stop-opacity="0.18"/><stop offset="100%" stop-color="white" stop-opacity="0"/></radialGradient></defs><circle cx="70%" cy="30%" r="180" fill="url(%23g2)"><animate attributeName="cy" values="30%;60%;30%" dur="10s" repeatCount="indefinite"/></circle><circle cx="20%" cy="80%" r="120" fill="url(%23g2)"><animate attributeName="cx" values="20%;50%;20%" dur="12s" repeatCount="indefinite"/></circle></svg>');
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  filter: blur(1px);
+  animation: about-bg-move 18s linear infinite alternate;
+}
+@keyframes about-bg-move {
+  0% { filter: blur(1px) brightness(1); }
+  100% { filter: blur(2px) brightness(1.08);}
+}
+
+/* Ensure content is above the background */
+.about-section > *:not(.about-bg-animated) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Live animated SVG background for Skills section */
+.skills-section {
+  position: relative;
+  overflow: hidden;
+}
+.skills-bg-animated {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+.skills-bg-animated::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="g3" cx="50%" cy="50%" r="80%"><stop offset="0%" stop-color="%236ea8fe" stop-opacity="0.18"/><stop offset="100%" stop-color="white" stop-opacity="0"/></radialGradient></defs><circle cx="80%" cy="20%" r="160" fill="url(%23g3)"><animate attributeName="cx" values="80%;60%;80%" dur="10s" repeatCount="indefinite"/></circle><circle cx="25%" cy="75%" r="110" fill="url(%23g3)"><animate attributeName="cy" values="75%;55%;75%" dur="12s" repeatCount="indefinite"/></circle></svg>');
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  filter: blur(1px);
+  animation: skills-bg-move 20s linear infinite alternate;
+}
+@keyframes skills-bg-move {
+  0% { filter: blur(1px) brightness(1); }
+  100% { filter: blur(2px) brightness(1.08);}
+}
+
+/* Ensure content is above the background */
+.skills-section > *:not(.skills-bg-animated) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Improved font color for dark mode in skills section */
+body.dark .skills-section,
+body.dark .skills-section h2,
+body.dark .skills-section .skill-card,
+body.dark .skills-section .skill-card i,
+body.dark .skills-section .skill-card span,
+body.dark .skills-section .skill-card div,
+body.dark .skills-section .skill-bar,
+body.dark .skills-section .skill-level {
+  color: #f5f7fa !important;
+  text-shadow: 0 2px 8px rgba(110,168,254,0.08);
+}
+body.dark .skills-section h2 {
+  color: #6ea8fe !important;
+}
+body.dark .skill-card i {
+  color: #ffd580 !important;
+}
+
+/* Dark Theme */
+body.dark {
+  --primary: #4ade80;         /* Green accent */
+  --secondary: #23272f;
+  --accent: #22d3ee;          /* Cyan accent for contrast */
+  --text: #f5f7fa;
+  --bg: #181a20;
+  --card-bg: #23272f;
+  --shadow: 0 4px 24px rgba(0,0,0,0.25);
+}
+
+/* Headings and section logos/icons in light mode */
+h1, h2, h3, .logo, .skill-card i, .project-card h3 {
+  color: #4f8cff;
+}
+
+/* Buttons and links in light mode */
+.btn, .btn-outline, a {
+  color: #fff;
+  background: #4f8cff;
+  border-color: #4f8cff;
+}
+.btn:hover, .btn-outline:hover, a:hover {
+  background: #ffd580;
+  color: #181a20;
+  border-color: #ffd580;
+}
+
+/* Dark mode: all text white */
+body.dark,
+body.dark * {
+  color: #f5f7fa !important;
+}
+
+/* Headings and section logos/icons in dark mode */
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark .logo {
+  color: #4ade80 !important;
+  text-shadow: 0 2px 8px rgba(34,211,238,0.12);
+}
+body.dark .skill-card i,
+body.dark .project-card h3 {
+  color: #22d3ee !important;
+}
+
+/* Buttons and links in dark mode: green/cyan */
+body.dark .btn, body.dark .btn-outline, body.dark a.btn, body.dark a.btn-outline {
+  color: #181a20 !important;
+  background: #4ade80 !important;
+  border-color: #4ade80 !important;
+}
+body.dark .btn:hover, body.dark .btn-outline:hover, body.dark a.btn:hover, body.dark a.btn-outline:hover {
+  background: #22d3ee !important;
+  color: #181a20 !important;
+  border-color: #22d3ee !important;
+}
+
+/* Remove highlight from LinkedIn and GitHub in header and contact section */
+header .social-icons a,
+#contact a,
+#contact a:visited,
+#contact a:active {
+  background: none !important;
+  color: inherit !important;
+  border: none !important;
+  padding: 0 !important;
+  font-weight: normal !important;
+  box-shadow: none !important;
+  transition: none !important;
+  text-decoration: underline;
+}
+
+header .social-icons a:hover,
+#contact a:hover {
+  color: #4ade80 !important;
+  background: none !important;
+  border: none !important;
+  text-decoration: underline;
+}
+
+/* Fix for skills and project cards: text and icons visible in dark mode */
+body.dark .skills-section .skill-card,
+body.dark .skills-section .skill-card *,
+body.dark .projects-container .project-card,
+body.dark .projects-container .project-card *,
+body.dark .project-card,
+body.dark .project-card * {
+  color: #ffffff !important;
+}
+
+body.dark .skill-card i,
+body.dark .project-card h3 {
+  color: #4ade80 !important; /* Green accent for icons and project titles */
+}
+
+body.dark .skill-card,
+body.dark .project-card {
+  background: #23272f !important;
+  border: 1.5px solid #4ade80 !important; /* Optional: green border for visibility */
+}
+
+/* Make project section card text and icons always visible */
+.projects-container .project-card,
+.projects-container .project-card * {
+  color: #181a20;
+}
+
+body.dark .projects-container .project-card,
+body.dark .projects-container .project-card * {
+  color: #f5f7fa !important;
+  background: #23272f !important;
+}
+
+body.dark .project-card h3,
+body.dark .project-card i {
+  color: #4ade80 !important; /* Green accent for dark mode */
+}
+
+/* Optional: Add border for better visibility in dark mode */
+body.dark .project-card {
+  border: 1.5px solid #4ade80 !important;
+}
+
+/* Live animated SVG background for Contact section */
+#contact {
+  position: relative;
+  overflow: hidden;
+}
+.contact-bg-animated {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+.contact-bg-animated::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="g4" cx="50%" cy="50%" r="80%"><stop offset="0%" stop-color="%234ade80" stop-opacity="0.18"/><stop offset="100%" stop-color="white" stop-opacity="0"/></radialGradient></defs><circle cx="60%" cy="40%" r="180" fill="url(%23g4)"><animate attributeName="cx" values="60%;40%;60%" dur="10s" repeatCount="indefinite"/></circle><circle cx="30%" cy="80%" r="120" fill="url(%23g4)"><animate attributeName="cy" values="80%;60%;80%" dur="12s" repeatCount="indefinite"/></circle></svg>');
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  filter: blur(1px);
+  animation: contact-bg-move 18s linear infinite alternate;
+}
+@keyframes contact-bg-move {
+  0% { filter: blur(1px) brightness(1); }
+  100% { filter: blur(2px) brightness(1.08);}
+}
+#contact > *:not(.contact-bg-animated) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Back to Top button */
+#backToTop {
+  position: fixed; bottom: 2rem; right: 2rem; display: none;
+  background: #4ade80; color: #181a20; border: none; border-radius: 50%;
+  width: 44px; height: 44px; font-size: 1.5rem; z-index: 999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+#backToTop.show { display: flex; align-items: center; justify-content: center; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  nav, section { padding: 0 1rem; }
+  .about-content { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 600px) {
+  .nav-links { gap: 0.7rem; }
+  .about-img img { width: 120px; height: 120px; }
+  section { padding: 1rem; }
+  .projects-container { grid-template-columns: 1fr; }
+}
+
+/* Glassmorphism cards in dark mode */
+body.dark .glass-card {
+  box-shadow: 0 0 24px 2px #4ade80, 0 4px 24px rgba(0,0,0,0.25);
+  border: 1.5px solid #22d3ee;
+}
